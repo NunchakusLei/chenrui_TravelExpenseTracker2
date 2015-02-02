@@ -78,6 +78,9 @@ public class ShowExpenseListActivity extends ShowClaimListActivity{
 		Button showExpenseAddExpenseButton = (Button) findViewById(R.id.showExpenseAddExpenseButton);
 		Button showExpenseEditClaimButton = (Button) findViewById(R.id.showExpenseEditClaimButton);
 		Button showExpenseEmailButton = (Button) findViewById(R.id.showExpenseEmailButton);
+		Button showExpenseSubmitExpenseButton = (Button) findViewById(R.id.showExpenseSubmitExpenseButton);
+		Button showExpenseAppoveExpenseButton = (Button) findViewById(R.id.showExpenseAppoveExpenseButton);
+		Button showExpenseReturnExpenseButton = (Button) findViewById(R.id.showExpenseReturnExpenseButton);
 		
 		//ListView showExpenseListView = (ListView) findViewById(R.id.showExpenseListView);
 		showExpenseListView = (ListView) findViewById(R.id.showExpenseListView);
@@ -90,8 +93,22 @@ public class ShowExpenseListActivity extends ShowClaimListActivity{
 		
 		
 		// set up button listener
-		showExpenseAddExpenseButton.setOnClickListener(new ButtonListener());
-		showExpenseEditClaimButton.setOnClickListener(new ButtonListener());
+		if (OpenedClaim.getStatus().equals("In Progress") || OpenedClaim.getStatus().equals("Returned")){
+			showExpenseAddExpenseButton.setOnClickListener(new ButtonListener());
+			showExpenseEditClaimButton.setOnClickListener(new ButtonListener());
+			showExpenseSubmitExpenseButton.setOnClickListener(new ButtonListener());
+		} else {
+			showExpenseAddExpenseButton.setVisibility(View.GONE);
+			showExpenseEditClaimButton.setVisibility(View.GONE);
+		}
+		
+		if (OpenedClaim.getStatus().equals("Submitted")){// || OpenedClaim.getStatus().equals("Returned"))
+			showExpenseAppoveExpenseButton.setVisibility(View.VISIBLE);
+			showExpenseAppoveExpenseButton.setOnClickListener(new ButtonListener());
+			showExpenseReturnExpenseButton.setVisibility(View.VISIBLE);
+			showExpenseReturnExpenseButton.setOnClickListener(new ButtonListener());
+		}
+		
 		showExpenseEmailButton.setOnClickListener(new ButtonListener());
 		
 		//http://www.ezzylearning.com/tutorial/handling-android-listview-onitemclick-event 1.26.2015.
@@ -145,7 +162,8 @@ public class ShowExpenseListActivity extends ShowClaimListActivity{
 		            	
 		            	//adb.setTitle("Expense Details");
 				adb.setCancelable(true);
-						
+				
+				if (OpenedClaim.getStatus().equals("In Progress") || OpenedClaim.getStatus().equals("Returned")){		
 				adb.setPositiveButton("Edit", new DialogInterface.OnClickListener(){
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
@@ -154,6 +172,7 @@ public class ShowExpenseListActivity extends ShowClaimListActivity{
 						startActivity(intent);
 						}
 					});
+				}
 				adb.show();
 						
 						
@@ -169,7 +188,7 @@ public class ShowExpenseListActivity extends ShowClaimListActivity{
 		});
 				
 				
-				
+		if (OpenedClaim.getStatus().equals("In Progress") || OpenedClaim.getStatus().equals("Returned")){
 		//https://github.com/jeremykid/Weijie2_Travel-expense-tracking/blob/master/src/ca/ualberta/cs/travel/MainActivity.java 2015.1.29.
 		showExpenseListView.setOnItemLongClickListener(new OnItemLongClickListener() {
 			@Override
@@ -214,6 +233,8 @@ public class ShowExpenseListActivity extends ShowClaimListActivity{
 				return true;
 			}
 		});
+	
+		}
 	}
 	
 	// reaction of Button
@@ -232,16 +253,21 @@ public class ShowExpenseListActivity extends ShowClaimListActivity{
 				//Email things
 				
 				StringBuffer mailBody = new StringBuffer();
-				for (int i = 0; i < ClaimList.size(); i++)
-				{
-					mailBody.append("ClaimName" + ClaimList.get(i).getName() + "\n From"
-							+ ClaimList.get(i).getStartDate().toString() + "To"
-							+ ClaimList.get(i).getEndDate().toString() + "is"
-							+ ClaimList.get(i).getStatus() + "\n description is"
-							+ "\n");
+				mailBody.append("Claim Name: " + OpenedClaim.getName()+"\n From"
+						+ OpenedClaim.getStartDate().toString() + " To "
+						+ OpenedClaim.getEndDate().toString()+"\nStatus: "
+						+ OpenedClaim.getStatus() + "\nDescription: " + OpenedClaim.getDescription()+"\n\n\n");
+				
+				for (int i = 0; i < OpenedClaim.getExpenseList().size(); i++){
+					mailBody.append("\nItem "+(i+1)+": " + OpenedClaim.getExpenseList().get(i).getItem()
+						+ "\nAmount: "+OpenedClaim.getExpenseList().get(i).getCurrency().toString()
+						+ "\nCategory: "+OpenedClaim.getExpenseList().get(i).getCategory()
+						+"\nDate: "+OpenedClaim.getExpenseList().get(i).getDate().toString() + 
+						"\nDescription: "+OpenedClaim.getExpenseList().get(i).getDescription()+"\n");
 				
 					
 				}
+				
 				Intent i = new Intent(Intent.ACTION_SEND);
 				i.setType("message/rfc822");
 				i.putExtra(Intent.EXTRA_TEXT, mailBody.toString());
@@ -254,6 +280,25 @@ public class ShowExpenseListActivity extends ShowClaimListActivity{
 							"There are no email clients installed.", Toast.LENGTH_SHORT)
 							.show();
 				}
+				
+			} else if (view.getId() == R.id.showExpenseSubmitExpenseButton){
+				//submit
+				OpenedClaim.setStatus("Submmited");
+				ClaimList.remove(OpenedClaimPosition);
+				ClaimList.add(OpenedClaimPosition,OpenedClaim);
+				saveInFile();
+			}  else if (view.getId() == R.id.showExpenseReturnExpenseButton){
+				//return
+				OpenedClaim.setStatus("Returned");
+				ClaimList.remove(OpenedClaimPosition);
+				ClaimList.add(OpenedClaimPosition,OpenedClaim);
+				saveInFile();
+			}  else if (view.getId() == R.id.showExpenseAppoveExpenseButton){
+				//approve
+				OpenedClaim.setStatus("Approved");
+				ClaimList.remove(OpenedClaimPosition);
+				ClaimList.add(OpenedClaimPosition,OpenedClaim);
+				saveInFile();
 			}
 		}
 	}

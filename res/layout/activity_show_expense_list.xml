@@ -84,6 +84,29 @@
                     android:textSize="14sp" />
 
                 <Button
+                    android:id="@+id/showExpenseSubmitExpenseButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:text="Submit"
+                    android:textSize="14sp" />
+                
+                <Button
+                    android:id="@+id/showExpenseAppoveExpenseButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:text="Appove"
+                    android:textSize="14sp" 
+                    android:visibility="gone"  />
+                
+                <Button
+                    android:id="@+id/showExpenseReturnExpenseButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:text="Return"
+                    android:textSize="14sp" 
+                    android:visibility="gone"  />
+                
+                <Button
                     android:id="@+id/showExpenseEditClaimButton"
                     android:layout_width="wrap_content"
                     android:layout_height="38dp"
