@@ -1,0 +1,131 @@
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ShowExpenseListActivity" 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"  >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_gravity="bottom" >
+
+        <TextView
+            android:id="@+id/showExpensefromTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="  from  "
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/showExpenseStartDateTtextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2010.12.02"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/showExpenseToTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="  to  "
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/showExpenseEndDateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="30dp"
+            android:text="2012.06.03"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/showExpenseEmailButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="114dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/showExpenseDescriptionTitleTextView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:hint="Description:"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/showExpenseDecriptionTextView"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.67"
+                android:text="description" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/showExpenseAddExpenseButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:text="Add Expense"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/showExpenseEditClaimButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:text="Edit Claim"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/showExpensTotalTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_weight="0.14"
+                android:hint="Total Amount"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/showExpensTotalTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_weight="0.14"
+                android:gravity="right"
+                android:minWidth="120dp"
+                android:text="CAD $1000.0" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/showExpenseListView"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent" >
+    </ListView>
+
+</LinearLayout>

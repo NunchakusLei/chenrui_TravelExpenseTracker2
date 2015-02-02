@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">chenrui_TravelExpenseTracker2</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_add_claim">AddClaimActivity</string>
+    <string name="title_activity_show_expense_list">ShowExpenseListActivity</string>
+    <string name="title_activity_add_expense">AddExpenseActivity</string>
+
+</resources>

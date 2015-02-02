@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ShowClaimListActivity" 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ListView
+        android:id="@+id/ShowClaimsListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.15"
+        android:fastScrollAlwaysVisible="false"
+        android:stackFromBottom="false"
+        android:visibility="visible" >
+        
+    </ListView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/ShowClaimsAddButton"
+            android:layout_width="140dp"
+            android:layout_height="68dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="0dp"
+            android:text="Add" />
+
+        <!--Button
+            android:id="@+id/EditButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_weight="0.08"
+            android:text="Edit" />
+
+        <Button
+            android:id="@+id/OthersButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_weight="0.08"
+            android:text="Others" /-->
+
+        <ListView
+            android:id="@+id/ShowClaimsTotalMoneyListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </ListView>
+
+    </LinearLayout>
+
+</LinearLayout>

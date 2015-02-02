@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/eventListExpensesLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/listClaimFromToLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true" >"
+
+        <TextView
+            android:id="@+id/listClaimFromTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:text="  From  "
+            android:textSize="8sp" />
+
+        <TextView
+            android:id="@+id/listClaimStartDateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start" />
+
+        <TextView
+            android:id="@+id/listClaimEndTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:text="  to  "
+            android:textSize="8sp" />
+
+        <TextView
+            android:id="@+id/listClaimEndDateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="20dp"
+            android:text="End" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/listClaimNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/listClaimFromToLayout"
+        android:layout_toLeftOf="@+id/listClaimTotalCurrencyTextView"
+        android:gravity="bottom"
+        android:paddingRight="5dp"
+        android:text="TextView"
+        android:textStyle="bold"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/listClaimTotalTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:gravity="right"
+        android:text="Total amount"
+        android:textSize="8sp" />
+
+    <TextView
+        android:id="@+id/listClaimTotalCurrencyTextView"
+        android:layout_width="wrap_content"
+        android:minWidth="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/listClaimTotalTextView"
+        android:gravity="right"
+        android:paddingTop="2dp"
+        android:paddingBottom="25dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/listClaimStatusTextView"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/listClaimNameTextView"
+        android:layout_below="@+id/listClaimNameTextView"
+        android:layout_alignParentBottom="true"
+        android:paddingTop="5dp"
+        android:paddingBottom="2dp"
+        android:layout_alignParentRight="true"
+        android:text="Status: " />
+
+</RelativeLayout>

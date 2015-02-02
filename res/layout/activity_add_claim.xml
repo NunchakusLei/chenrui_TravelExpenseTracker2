@@ -1,0 +1,69 @@
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/addClaimNameEeditText"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:hint="Enter Claim Name" >
+
+        <requestFocus />
+    </EditText>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right" >
+
+        <TextView
+            android:id="@+id/addClaimStartTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Start from  "
+            android:gravity="center" />
+
+        <DatePicker
+            android:id="@+id/addClaimStartDdatePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:calendarViewShown="false" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right" >
+
+        <TextView
+            android:id="@+id/addClaimEndTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="End at     "
+            android:gravity="center" />
+
+        <DatePicker
+            android:id="@+id/addClaimEndDatePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:calendarViewShown="false" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/addClaimDescriptionEditText"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="0.23"
+        android:hint="Enter claim description" />
+
+    <Button
+        android:id="@+id/addClaimButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Add Claim" />
+
+</LinearLayout>
