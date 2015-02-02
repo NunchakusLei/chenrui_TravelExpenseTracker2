@@ -97,16 +97,24 @@ public class ShowExpenseListActivity extends ShowClaimListActivity{
 			showExpenseAddExpenseButton.setOnClickListener(new ButtonListener());
 			showExpenseEditClaimButton.setOnClickListener(new ButtonListener());
 			showExpenseSubmitExpenseButton.setOnClickListener(new ButtonListener());
+			
+			showExpenseAppoveExpenseButton.setVisibility(View.GONE);
+			showExpenseReturnExpenseButton.setVisibility(View.GONE);
 		} else {
 			showExpenseAddExpenseButton.setVisibility(View.GONE);
 			showExpenseEditClaimButton.setVisibility(View.GONE);
 		}
 		
 		if (OpenedClaim.getStatus().equals("Submitted")){// || OpenedClaim.getStatus().equals("Returned"))
-			showExpenseAppoveExpenseButton.setVisibility(View.VISIBLE);
+			showExpenseSubmitExpenseButton.setVisibility(View.GONE);
 			showExpenseAppoveExpenseButton.setOnClickListener(new ButtonListener());
-			showExpenseReturnExpenseButton.setVisibility(View.VISIBLE);
 			showExpenseReturnExpenseButton.setOnClickListener(new ButtonListener());
+		}
+		
+		if (OpenedClaim.getStatus().equals("Approved")){
+			showExpenseAppoveExpenseButton.setVisibility(View.GONE);
+			showExpenseSubmitExpenseButton.setVisibility(View.GONE);
+			showExpenseReturnExpenseButton.setVisibility(View.GONE);
 		}
 		
 		showExpenseEmailButton.setOnClickListener(new ButtonListener());
@@ -283,22 +291,34 @@ public class ShowExpenseListActivity extends ShowClaimListActivity{
 				
 			} else if (view.getId() == R.id.showExpenseSubmitExpenseButton){
 				//submit
-				OpenedClaim.setStatus("Submmited");
+				OpenedClaim.setStatus("Submitted");
 				ClaimList.remove(OpenedClaimPosition);
 				ClaimList.add(OpenedClaimPosition,OpenedClaim);
 				saveInFile();
+				Intent intent = new Intent(ShowExpenseListActivity.this, ShowExpenseListActivity.class);
+				startActivity(intent);
+				overridePendingTransition(0, 0);
+				finish();
 			}  else if (view.getId() == R.id.showExpenseReturnExpenseButton){
 				//return
 				OpenedClaim.setStatus("Returned");
 				ClaimList.remove(OpenedClaimPosition);
 				ClaimList.add(OpenedClaimPosition,OpenedClaim);
 				saveInFile();
+				Intent intent = new Intent(ShowExpenseListActivity.this, ShowExpenseListActivity.class);
+				startActivity(intent);
+				overridePendingTransition(0, 0);
+				finish();
 			}  else if (view.getId() == R.id.showExpenseAppoveExpenseButton){
 				//approve
 				OpenedClaim.setStatus("Approved");
 				ClaimList.remove(OpenedClaimPosition);
 				ClaimList.add(OpenedClaimPosition,OpenedClaim);
 				saveInFile();
+				Intent intent = new Intent(ShowExpenseListActivity.this, ShowExpenseListActivity.class);
+				startActivity(intent);
+				overridePendingTransition(0, 0);
+				finish();
 			}
 		}
 	}

@@ -94,6 +94,7 @@ public class AddExpenseActivity extends ShowExpenseListActivity {
 		listCategory.add("registration");
 		listCategory.add("accommodation");
 		listCategory.add("meal");
+		listCategory.add("shopping");
 		dataCategoryAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, listCategory);
 		dataCategoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		addExpenseCategorySpinner.setAdapter(dataCategoryAdapter);

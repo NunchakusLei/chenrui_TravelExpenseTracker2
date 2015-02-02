@@ -67,12 +67,14 @@
 
             <TextView
                 android:id="@+id/showExpenseDecriptionTextView"
+                android:maxWidth="225dp"
                 android:layout_width="match_parent"
                 android:layout_height="fill_parent"
                 android:layout_weight="1.67"
                 android:text="description" />
 
             <LinearLayout
+                android:id="@+id/showExpenseButtonsLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
 
@@ -95,16 +97,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="38dp"
                     android:text="Appove"
-                    android:textSize="14sp" 
-                    android:visibility="gone"  />
+                    android:textSize="14sp"  />
                 
                 <Button
                     android:id="@+id/showExpenseReturnExpenseButton"
                     android:layout_width="wrap_content"
                     android:layout_height="38dp"
                     android:text="Return"
-                    android:textSize="14sp" 
-                    android:visibility="gone"  />
+                    android:textSize="14sp"  />
                 
                 <Button
                     android:id="@+id/showExpenseEditClaimButton"
@@ -118,6 +118,7 @@
 
         <LinearLayout
             android:layout_width="fill_parent"
+            android:minWidth="120dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:orientation="vertical" >
