@@ -67,9 +67,9 @@ public class AddClaimActivity extends ShowClaimListActivity {
 				addClaimStartDdatePicker.updateDate(
 						oldClaim.getStartDate().getYear() + 1900, oldClaim.getStartDate()
 								.getMonth(), oldClaim.getStartDate().getDate());
-				addClaimStartDdatePicker.updateDate(
-						oldClaim.getStartDate().getYear() + 1900, oldClaim.getStartDate()
-								.getMonth(), oldClaim.getStartDate().getDate());
+				addClaimEndDatePicker.updateDate(
+						oldClaim.getEndDate().getYear() + 1900, oldClaim.getEndDate()
+								.getMonth(), oldClaim.getEndDate().getDate());
 
 				isAClaimOpened = false;
 			}

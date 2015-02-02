@@ -38,6 +38,7 @@ public class ShowExpenseListActivity extends ShowClaimListActivity{
 
 		public static int OpenedExpensePosition;
 		public static boolean isAExpenseOpened = false;
+		
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
